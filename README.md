@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💰 Josh - Personal Finance Dashboard
 
-## Getting Started
+Josh is a powerful, AI-enhanced personal finance assistant built with **Next.js**, **Supabase**, and **Tailwind CSS**. It helps users track income and expenses, visualize trends, manage budgets, and get smart insights with the help of a chatbot assistant.
 
-First, run the development server:
+---
+
+## 📸 Screenshots
+
+> _(Add screenshots here once deployed or during development)_
+
+---
+
+## ⚙️ Features
+
+- ✅ Email/Password and Google Authentication (via Supabase Auth)
+- ✅ Add & Track Incomes and Expenses
+- ✅ Monthly Budgeting & Balance Overview
+- ✅ Chatbot Assistant (powered by LLMs like LLaMA3 via Groq API)
+- ✅ Smart Summary & Spending Analysis
+- ✅ Income vs Expense Trend Charts
+- ✅ Predictive Spending with Linear Regression
+- ✅ Recurring Expense Categorization
+- ✅ Fully Responsive Design (Mobile/Desktop)
+- ✅ Protected API Routes with Supabase Session Middleware
+
+---
+
+## 🧠 Tech Stack
+
+- **Frontend**: Next.js (App Router) + TypeScript + Tailwind CSS
+- **Backend**: Supabase (PostgreSQL, Auth, Storage)
+- **AI Bot**: LLaMA 3.3 (via Groq API)
+- **Auth Helpers**: `@supabase/auth-helpers-nextjs`
+- **UI**: Headless UI, React Icons, Custom Components
+- **Charting**: `recharts` or `chart.js` (customized trends)
+
+---
+
+## 🚀 Getting Started (Local Development)
+
+### 1️⃣ Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone  https://github.com/ashish8824/josh-ai-assistant.git
+cd finance-dashboard
