@@ -7,6 +7,8 @@ Josh is a powerful, AI-enhanced personal finance assistant built with **Next.js*
 ## 📸 Screenshots
 
 > _(Add screenshots here once deployed or during development)_
+> ![image](https://github.com/user-attachments/assets/2c27e10e-7f03-4104-9592-b07e1a4859f8)
+
 
 ---
 
