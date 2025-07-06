@@ -1,103 +1,174 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
+
+export default function LandingPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <motion.main
+      className="min-h-screen bg-gradient-to-br from-indigo-50 to-white flex flex-col items-center justify-center p-6 text-center"
+      initial="hidden"
+      animate="visible"
+      variants={fadeIn}
+      custom={0}
+    >
+      <motion.div variants={fadeIn} custom={1} className="max-w-3xl">
+        <h1 className="text-5xl font-bold text-indigo-700 mb-4">
+          Meet <span className="text-indigo-900">Josh</span> 🧠
+        </h1>
+        <p className="text-xl text-gray-700 mb-8">
+          Your AI-powered finance assistant.
+          <br />
+          Track expenses, plan savings, set budgets — all in one smart
+          dashboard.
+        </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* CTA Buttons */}
+        <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          variants={fadeIn}
+          custom={2}
+        >
+          <Link
+            href="/signin"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg text-lg font-semibold flex items-center gap-2 shadow-lg transition"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Start Managing My Money <ArrowRight size={18} />
+          </Link>
+
+          <Link
+            href="#features"
+            className="text-indigo-600 hover:underline text-lg"
           >
-            Read our docs
-          </a>
+            Learn more
+          </Link>
+        </motion.div>
+      </motion.div>
+
+      {/* Features Section */}
+      <motion.section
+        id="features"
+        className="mt-20 w-full max-w-5xl"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.h2
+          className="text-3xl font-bold text-gray-800 mb-8"
+          variants={fadeIn}
+          custom={3}
+        >
+          Features
+        </motion.h2>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              variants={fadeIn}
+              custom={index + 4}
+              className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition"
+            >
+              <h3 className="text-xl font-semibold text-indigo-800 mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600">{feature.description}</p>
+            </motion.div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </motion.section>
+
+      {/* Testimonials */}
+      <motion.section
+        className="mt-24 w-full max-w-4xl text-left"
+        variants={fadeIn}
+        custom={13}
+      >
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          What users say
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-6 text-gray-700">
+          <blockquote className="p-4 bg-white border rounded-xl shadow">
+            “Josh helped me stick to my food budget for the first time ever.
+            Love the savings tips!”
+            <footer className="mt-2 text-sm text-gray-500">
+              — Riya, Bangalore
+            </footer>
+          </blockquote>
+          <blockquote className="p-4 bg-white border rounded-xl shadow">
+            “The AI summaries are 🔥. I know my top expenses and can plan better
+            now.”
+            <footer className="mt-2 text-sm text-gray-500">
+              — Ankit, Pune
+            </footer>
+          </blockquote>
+        </div>
+      </motion.section>
+
+      {/* Footer */}
+      <motion.footer
+        className="mt-20 text-sm text-gray-500"
+        variants={fadeIn}
+        custom={15}
+      >
+        Built with ❤️ by Ashish • © {new Date().getFullYear()}
+      </motion.footer>
+    </motion.main>
   );
 }
+
+const features = [
+  {
+    title: "📊 Smart Expense Tracking",
+    description:
+      "Categorize and track expenses automatically across Food, Transport, Rent, and more.",
+  },
+  {
+    title: "💼 Real-Time Balance & Income Logs",
+    description:
+      "Track your income and know your exact balance anytime — ₹ updated in real-time.",
+  },
+  {
+    title: "📅 Monthly Budgeting",
+    description:
+      "Set budgets by category and track how much you've spent vs planned.",
+  },
+  {
+    title: "🚨 Spike & Recurring Detection",
+    description:
+      "Josh detects unusual spending or repeating expenses like EMIs and subscriptions.",
+  },
+  {
+    title: "📈 Smart Summaries & Comparisons",
+    description:
+      "Get monthly financial insights and see how this month compares to last.",
+  },
+  {
+    title: "💡 Daily Spending Limit",
+    description: "Josh recommends safe daily limits to stay within budget.",
+  },
+  {
+    title: "📥 AI-Powered Suggestions",
+    description:
+      "Josh suggests how much to invest, save, or adjust budgets based on your habits.",
+  },
+  {
+    title: "🔐 Private & Secure",
+    description:
+      "All your data is encrypted and stored securely using Supabase.",
+  },
+];
