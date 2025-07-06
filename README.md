@@ -51,4 +51,4 @@ Josh is a powerful, AI-enhanced personal finance assistant built with **Next.js*
 
 ```bash
 git clone  https://github.com/ashish8824/josh-ai-assistant.git
-cd finance-dashboard
+cd josh-ai-assistant
